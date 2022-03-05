@@ -1,7 +1,8 @@
-import { isCursorAtStart } from "@testing-library/user-event/dist/utils";
+import { useContext } from 'react';
+import FeedbackContext from "../context/FeedbackContext";
 
-export default function FeedbackStat({feedback}) {
-
+export default function FeedbackStat() {
+    const {feedback} = useContext(FeedbackContext);
     let avg = feedback.reduce((acc, cur)=>{
         return acc + cur.rating
     }, 0) / feedback.length
